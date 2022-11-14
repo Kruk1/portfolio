@@ -1,0 +1,275 @@
+#root {
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#introduce
+{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.monitor
+{
+    background-image: url("win10bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 8px solid #aaa;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 1120px;
+    height: 589px;
+}
+
+.win-toolbar
+{
+    width: 100%;
+    height: 40px;
+    background-color: #212121;
+    display: flex;
+    justify-content: space-between;
+}
+
+.win-buttons
+{
+    display: flex;
+}
+
+.win-buttons > a, .win-buttons > button
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    aspect-ratio: 1/1;
+    color: white;
+    font-size: 20px;
+    cursor: auto;
+}
+
+.win-buttons > a:hover,  .win-buttons > button:hover
+{
+    background-color: #434343;
+}
+
+.win-buttons > a > .icon-search
+{
+    transform: rotate(90deg);
+}
+
+.win-buttons > button
+{
+    background-color: transparent;
+    border: 0;
+    font-size: 18px;
+}
+
+.date
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.date:hover
+{
+    background-color: #434343;
+    user-select: none;
+}
+
+.date-margin
+{
+    margin-top: 2px;
+}
+
+.app-exe
+{
+    background-color: #323232;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 55px;
+}
+
+.toolbar
+{
+    background-color: #ddd;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.toolbar button 
+{
+    width: 15px;
+    border-radius: 50%;
+    border: 0;
+    margin: 2px 3px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.toolbar button:last-child
+{
+    margin-right: 10px;
+}
+
+.exit
+{
+    background-color: rgb(185, 0, 0);
+}
+
+.resize
+{
+    background-color: #c9c900;
+}
+
+.hide
+{
+    background-color: rgb(0, 196, 0);
+}
+
+.app-content
+{
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 10px 30px;
+    width: 950px;
+    display: flex;
+    align-items: center;
+}
+
+.avatar-container
+{
+    width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+    animation: translate 1.5s forwards;
+}
+
+.avatar-container img 
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 400px;
+}
+
+.about
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.monitor > .app-exe > .app-content > .about > .type-container
+{
+    text-align: left;
+    font-size: 54px;
+    font-weight: 400;
+    width: 600px;
+    align-self: start;
+}
+
+.monitor > .app-exe > .app-content > .about > .type-container > .type-cont
+{
+    display: inline-block;
+    margin-left: 5px;
+    width: 3px;
+    height: 38px;
+    background-color: #eee;
+    animation: typing 0.75s infinite ;
+}
+
+.whitespace
+{
+    white-space: pre-wrap;
+}
+
+.about-text
+{
+    align-self: flex-start;
+    width: 600px;
+    letter-spacing: .5px;
+    text-align: start;
+    line-height: 34px;
+    margin-top: 10px;
+    font-size: 30px;
+    transition: 1s;
+}
+
+.button-check
+{
+    width: 100px;
+    line-height: 40px;
+    background-color: #323232;
+    border-radius: 5px;
+    padding: 0 5px;
+    box-shadow: 0 0 2px 1px #eee;
+    margin-top: 30px;
+    text-decoration: none;
+    color: white;
+    transition: .1s;
+}
+
+.button-check:hover
+{
+    box-shadow: 0 0 2px 1px #ddd;
+    background-color: #434343;
+}
+
+.monitor-lower
+{
+    width: 100px;
+    height: 80px;
+    background-color: #aaa;
+}
+
+.monitor-stabilizer
+{
+    width: 300px;
+    height: 20px;
+    background-color: #aaa;
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+}
+
+@keyframes translate {
+    0%{transform: translateX(-100%); visibility: hidden; opacity: 0;}
+    100%{transform: translateX(0); visibility: visible; opacity: 1;}
+}
+
+@keyframes typing {
+    0%{background-color: #eee;}
+    50%{background-color: #212121;}
+    100%{background-color: #eee;}
+}
+
+@keyframes minimalize {
+    0%{transform: scale(1); top: 0; left: 0;}
+    100%{transform: scale(0); top: 100%; left: 0;}
+}
