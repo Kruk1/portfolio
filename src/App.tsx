@@ -1,13 +1,23 @@
 import React, { CSSProperties, useEffect, useRef, useState } from 'react'
 import Nav from './nav'
 import './style/intro.css'
+import './style/tech-stack.css'
 import './style/cleanStyle.css'
 import Typing from './typing/typing'
+
+type scrollSections =
+{
+    intro: HTMLDivElement | null;
+    tech: HTMLDivElement | null;
+}
 
 function App() {
 
     let date: Date = new Date()
     const exe = useRef<HTMLDivElement>(null)
+    const intro = useRef<HTMLDivElement>(null)
+    const tech = useRef<HTMLDivElement>(null)
+    const [propsNav, setPropsNav] = useState<scrollSections>()
     const [styleAbout, setStyleAbout] = useState(
         {
             opacity: 0
@@ -85,13 +95,14 @@ function App() {
             }
         }
         typeIntro()
+        setPropsNav({intro: intro.current, tech: tech.current})
     }, [])
 
     return (
         <>
-            <Nav />
+            <Nav scrollSections={propsNav}/>
             <main className="App">
-                <section id='introduce'>
+                <section id='introduce' ref={intro}>
                     <div className="monitor">
                         {displayExe ? 
                             <div className="app-exe" style={isFullScreen ? fullScreen : {}} ref={exe} onAnimationEnd={animationEnd}>
@@ -128,8 +139,8 @@ function App() {
                     <div className="monitor-lower"></div>
                     <div className="monitor-stabilizer"></div>
                 </section>
-                <section className="tech-stack">
-
+                <section id="tech-stack" ref={tech}>
+                    <h1>Technology what i use</h1>
                 </section>
             </main>
         </>
