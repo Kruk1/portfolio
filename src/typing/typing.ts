@@ -31,9 +31,9 @@ export default class Typing
                 {
                     text.appendData(typingText[i])
                     if(this.elementBefore)
-                        element!.insertBefore(text, this.elementBefore)
+                        element.insertBefore(text, this.elementBefore)
                     else
-                        element!.append(text)
+                        element.append(text)
                     i++
                 }
                 else if(i > typingText.length - 1 || element === null)

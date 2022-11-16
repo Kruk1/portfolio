@@ -7,6 +7,11 @@
     scroll-behavior: smooth;
 }
 
+.App 
+{
+    width: 100%;
+}
+
 #introduce
 {
     min-height: 100vh;
@@ -72,6 +77,7 @@
 {
     background-color: transparent;
     border: 0;
+    margin: 0;
     font-size: 18px;
 }
 
@@ -119,11 +125,11 @@
 
 .toolbar button 
 {
-    width: 15px;
-    border-radius: 50%;
+    width: 20px;
+    border-radius: 100%;
     border: 0;
     margin: 2px 3px;
-    height: 15px;
+    height: 20px;
     cursor: pointer;
 }
 
@@ -264,6 +270,11 @@
     100%{transform: translateX(0); visibility: visible; opacity: 1;}
 }
 
+@keyframes translateY {
+    0%{transform: translateY(-100%); visibility: hidden; opacity: 0;}
+    100%{transform: translateY(0); visibility: visible; opacity: 1;}
+}
+
 @keyframes typing {
     0%{background-color: #eee;}
     50%{background-color: #212121;}
@@ -273,4 +284,220 @@
 @keyframes minimalize {
     0%{transform: scale(1); top: 0; left: 0;}
     100%{transform: scale(0); top: 100%; left: 0;}
+}
+
+@media screen and (max-width: 1150px) 
+{
+    .app-content
+    {
+        padding: 10px;
+        width: 800px;
+    }
+
+    .app-exe
+    {
+        margin: auto 30px;
+    }
+
+    .monitor
+    {
+        width: 880px;
+        height: 550px;
+    }
+
+    .monitor > .app-exe > .app-content > .about > .type-container 
+    {
+        width: 450px;
+        font-size: 40px;
+    }
+
+    .about-text
+    {
+        width: 450px;
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .avatar-container
+    {
+        width: 250px;
+        height: 350px;
+    }
+
+    .monitor > .app-exe > .app-content > .about > .type-container > .type-cont
+    {
+        height: 29px;
+    }
+}
+
+@media screen and (max-width: 940px)
+{
+    .app-content
+    {
+        width: 600px;
+    }
+
+    .monitor > .app-exe > .app-content > .about > .type-container 
+    {
+        width: 350px;
+        font-size: 30px;
+    }
+
+    .about-text
+    {
+        width: 350px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .avatar-container
+    {
+        width: 200px;
+        height: 300px;
+    }
+
+    .avatar-container img
+    {
+        height: 300px;
+    }
+
+    .button-check
+    {
+        line-height: 30px;
+    }
+
+    .monitor
+    {
+        width: 680px;
+        height: 450px;
+    }
+
+    .monitor > .app-exe > .app-content > .about > .type-container > .type-cont
+    {
+        width: 2px;
+        height: 22px;
+    }
+} 
+
+@media screen and (max-width: 730px)
+{
+    #introduce
+    {
+        min-height: 110vh;
+    }
+
+    .avatar-container
+    {
+        width: 220px;
+        height: 200px;
+        flex: 1 0 auto;
+        margin-bottom: 10px;
+        overflow: auto;
+        overflow-x: hidden;
+        animation: translateY 1.5s forwards;
+    }
+
+    .avatar-container img
+    {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+    }
+
+    .app-content
+    {
+        width: 400px;
+        height: 300px;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow-y: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .monitor > .app-exe > .app-content > .about > .type-container 
+    {
+        width: 280px;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .about-text
+    {
+        width: 280px;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+    }
+
+    .app-exe
+    {
+        justify-content: flex-start;
+    }
+
+    .monitor
+    {
+        width: 500px;
+        height: 350px;
+    }
+
+    .monitor-lower
+    {
+        width: 75px;
+    }
+
+    .monitor-stabilizer
+    {
+        width: 250px;
+    }
+
+    .monitor > .app-exe > .app-content > .about > .type-container > .type-cont
+    {
+        height: 18px;
+    }
+}
+
+@media screen and (max-width: 550px)
+{
+    .app-content
+    {
+        width: 250px;
+        padding: 5px;
+    }
+
+    .monitor > .app-exe > .app-content > .about > .type-container 
+    {
+        width: 250px;
+        font-size: 22.2px;
+        text-align: center;
+    }
+
+    .about-text
+    {
+        width: 250px;
+        font-size: 15px;
+        line-height: 18px;
+        text-align: center;
+    }
+
+    .monitor > .app-exe > .app-content > .about > .type-container > .type-cont
+    {
+        height: 16px;
+    }
+
+    .monitor
+    {
+        width: 280px;
+        height: 400px;
+    }
+
+    .monitor-lower
+    {
+        display: none;
+    }
+
+    .monitor-stabilizer
+    {
+        display: none;
+    }
 }

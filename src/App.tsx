@@ -1,7 +1,7 @@
 import React, { CSSProperties, useEffect, useRef, useState } from 'react'
 import Nav from './nav'
 import './style/intro.css'
-import './style/tech-stack.css'
+import './style/about.css'
 import './style/cleanStyle.css'
 import Typing from './typing/typing'
 
@@ -37,7 +37,7 @@ function App() {
     {
         setDisplayExe(prev => !prev)
         setIsButtonActive(prev => !prev)
-        setTimeout(open, 500)
+        setTimeout(open, 0)
     }
 
     function minimalizeExe()
@@ -50,7 +50,7 @@ function App() {
         if(event.animationName !== 'minimalize') return
         setDisplayExe(prev => !prev)
         setIsButtonActive(prev => !prev)
-        setTimeout(open, 500)
+        setTimeout(open, 0)
     }
 
     function resizeExe()
@@ -63,6 +63,7 @@ function App() {
         try
         {
             setStyleAbout({opacity: 0})
+            if(!document.querySelector('#type')) return
             const typeContainer = '#type'
             const typeCont = document.querySelector('.type-cont') as HTMLElement
             const type = new Typing(typeContainer, {loop: false, duration: 300}, typeCont)
@@ -118,7 +119,7 @@ function App() {
                                     <div className="about">
                                         <div className='type-container whitespace' id='type'><div className="type-cont"></div></div>
                                         <p className='about-text' style={styleAbout}>I am self-taught fullstack developer with passion. I have been coding for 4 years and i am ready for working with you </p>
-                                        <a href="#" className='button-check'style={styleAbout}>Check more!</a>
+                                        <a href="#tech-stack" className='button-check'style={styleAbout}>Check more!</a>
                                     </div>
                                 </div>
                             </div> : null
@@ -139,8 +140,9 @@ function App() {
                     <div className="monitor-lower"></div>
                     <div className="monitor-stabilizer"></div>
                 </section>
-                <section id="tech-stack" ref={tech}>
-                    <h1>Technology what i use</h1>
+                <section id="about" ref={tech}>
+                    <h1>About me</h1>
+                    <p> </p>
                 </section>
             </main>
         </>
