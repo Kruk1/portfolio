@@ -1,4 +1,5 @@
 import React, { CSSProperties, useEffect, useRef, useState } from 'react'
+import { Parallax } from 'react-scroll-parallax';
 import Nav from './nav'
 import './style/intro.css'
 import './style/about.css'
@@ -8,7 +9,7 @@ import Typing from './typing/typing'
 type scrollSections =
 {
     intro: HTMLDivElement | null;
-    tech: HTMLDivElement | null;
+    projects: HTMLDivElement | null;
 }
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
     let date: Date = new Date()
     const exe = useRef<HTMLDivElement>(null)
     const intro = useRef<HTMLDivElement>(null)
-    const tech = useRef<HTMLDivElement>(null)
+    const projects = useRef<HTMLDivElement>(null)
     const [propsNav, setPropsNav] = useState<scrollSections>()
     const [styleAbout, setStyleAbout] = useState(
         {
@@ -32,6 +33,12 @@ function App() {
     const [displayExe, setDisplayExe] = useState(true)
     const [isButtonActive, setIsButtonActive] = useState(true)
     const [isFullScreen, setIsFullScreen] = useState(false)
+    const [styleTech, setStyleTech] = useState(
+        {
+            opacity: 0,
+            display: 'none'
+        }
+    )
 
     function displayIntro()
     {
@@ -77,6 +84,22 @@ function App() {
         }
     }
 
+    function scroll()
+    {
+        const paragraph = document.querySelector<HTMLParagraphElement>('.about-info')
+        if(paragraph!.offsetTop + paragraph!.offsetHeight - window.innerHeight > window.pageYOffset) return
+        setStyleTech({
+            opacity: 1,
+            display: 'block'
+        })
+    }
+
+    useEffect(() => 
+    {
+        window.addEventListener('scroll', scroll)
+        return () => window.removeEventListener('scroll', scroll)
+    })
+
     useEffect(() => 
     {
         const typeContainer = '#type'
@@ -96,7 +119,7 @@ function App() {
             }
         }
         typeIntro()
-        setPropsNav({intro: intro.current, tech: tech.current})
+        setPropsNav({intro: intro.current, projects: projects.current})
     }, [])
 
     return (
@@ -114,12 +137,12 @@ function App() {
                                 </div>
                                 <div className="app-content">
                                     <div className="avatar-container">
-                                        <img src="myphoto.jpg" alt="" className='avatar'/>
+                                        <img src="myphoto.jpg" alt="my photo" className='avatar'/>
                                     </div>
                                     <div className="about">
                                         <div className='type-container whitespace' id='type'><div className="type-cont"></div></div>
-                                        <p className='about-text' style={styleAbout}>I am self-taught fullstack developer with passion. I have been coding for 4 years and i am ready for working with you </p>
-                                        <a href="#tech-stack" className='button-check'style={styleAbout}>Check more!</a>
+                                        <p className='about-text' style={styleAbout}>I am making fullstack applications like blogs, online shops, communication chat and more!</p>
+                                        <a href="#about" className='button-check'style={styleAbout}>Check more!</a>
                                     </div>
                                 </div>
                             </div> : null
@@ -133,16 +156,66 @@ function App() {
                             </div>
                             <div className="date">
                                 {`${date.getHours()}:${date.getMinutes() > 9 ? date.getMinutes() : `0${date.getMinutes()}`}`}
-                                <span className='date-margin'>{`${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`}</span>
+                                <span className='date-margin'>{`${date.getDate() > 9 ? date.getDate() : `0${date.getDate()}`}.${date.getMonth() > 9 ? date.getMonth() + 1 : `0${date.getMonth() + 1}`}.${date.getFullYear()}`}</span>
                             </div>
                         </div>
                     </div>
                     <div className="monitor-lower"></div>
                     <div className="monitor-stabilizer"></div>
                 </section>
-                <section id="about" ref={tech}>
+                <section id="about">
                     <h1>About me</h1>
-                    <p> </p>
+                    <p className="about-info">My journey with programing started 2018 in middle school, while my IT lesson. In this time, I got to know HTML and CSS, which make huge satisfaction to learn it. I am self-taught developer, who really enjoy programing with wide stack of technology and dont afraid of new challenges</p>
+                    <h2>Technology which I am using</h2>
+                    <div className="tech-stack" style={styleTech}>
+                        <div className="tech-container">
+                            <label htmlFor="html-progress">
+                                <h3>HTML</h3>
+                            </label>
+                            <progress id="html-progress" className="tech-progress-bar html" value="80" max="100"></progress>
+                        </div>
+                        <div className="tech-container">
+                            <label htmlFor="css-progress">
+                                <h3>CSS</h3>
+                            </label>
+                            <progress id="css-progress" className="tech-progress-bar css" value="80" max="100"></progress>
+                        </div>
+                        <div className="tech-container">
+                            <label htmlFor="ts-progress">
+                                <h3>TypeScript</h3>
+                            </label>
+                            <progress id="ts-progress" className="tech-progress-bar ts" value="65" max="100"></progress>
+                        </div>
+                        <div className="tech-container">
+                            <label htmlFor="react-progress">
+                                <h3>React</h3>
+                            </label>
+                            <progress id="react-progress" className="tech-progress-bar react" value="45" max="100"></progress>
+                        </div>
+                        <div className="tech-container other-tech">
+                            <h3>Other technologies</h3>
+                            <div className="technologies">
+                                <div className="tech-short">
+                                    <h4>Express</h4>
+                                </div>
+                                <div className="tech-short">
+                                    <h4>Axios</h4>
+                                </div>
+                                <div className="tech-short">
+                                    <h4>MongoDB</h4>
+                                </div>
+                                <div className="tech-short">
+                                    <h4>MySQL</h4>
+                                </div>
+                                <div className="tech-short">
+                                    <h4>PHP</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="projects" ref={projects}>
+
                 </section>
             </main>
         </>

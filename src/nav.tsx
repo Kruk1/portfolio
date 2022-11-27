@@ -16,9 +16,9 @@ function Nav(props: any) {
     function scroll()
     {
         if(window.innerHeight >= 650) return
-        if(props.scrollSections.tech.offsetTop - 100 >= window.pageYOffset)
+        if(props.scrollSections.projects.offsetTop - 100 >= window.pageYOffset)
             setIndexNavItem(0)
-        else if(props.scrollSections.tech.offsetTop - 100 <= window.pageYOffset)
+        else if(props.scrollSections.projects.offsetTop - 100 <= window.pageYOffset)
             setIndexNavItem(100)
         else
         {
@@ -35,7 +35,7 @@ function Nav(props: any) {
 
     function hideNav()
     {
-        if(window.innerHeight <= 650) return
+        if(window.innerWidth >= 650) return
         setIsNavOpen(false)
         document.body.style.overflow = ''
     }
