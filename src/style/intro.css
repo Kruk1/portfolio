@@ -7,6 +7,11 @@
     scroll-behavior: smooth;
 }
 
+html
+{
+    scroll-padding-top: 53px;
+}
+
 .App 
 {
     width: 100%;

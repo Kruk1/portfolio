@@ -10,6 +10,15 @@ Font license info
    Homepage:  http://somerandomdude.com/work/iconic/
 
 
+## Font Awesome
+
+   Copyright (C) 2016 by Dave Gandy
+
+   Author:    Dave Gandy
+   License:   SIL ()
+   Homepage:  http://fortawesome.github.com/Font-Awesome/
+
+
 ## Entypo
 
    Copyright (C) 2012 by Daniel Bruce
@@ -26,14 +35,5 @@ Font license info
    Author:    Crowdsourced, for Fontello project
    License:   SIL (http://scripts.sil.org/OFL)
    Homepage:  http://fontello.com
-
-
-## Font Awesome
-
-   Copyright (C) 2016 by Dave Gandy
-
-   Author:    Dave Gandy
-   License:   SIL ()
-   Homepage:  http://fortawesome.github.com/Font-Awesome/
 
 

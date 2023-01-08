@@ -1,10 +1,11 @@
 import React, { CSSProperties, useEffect, useRef, useState } from 'react'
-import { Parallax } from 'react-scroll-parallax';
 import Nav from './nav'
 import './style/intro.css'
 import './style/about.css'
 import './style/cleanStyle.css'
 import Typing from './typing/typing'
+import { useInView } from 'framer-motion'
+import Projects from './Projects'
 
 type scrollSections =
 {
@@ -13,17 +14,19 @@ type scrollSections =
 }
 
 function App() {
-
     let date: Date = new Date()
     const exe = useRef<HTMLDivElement>(null)
     const intro = useRef<HTMLDivElement>(null)
     const projects = useRef<HTMLDivElement>(null)
+    const paragraph = useRef<HTMLDivElement>(null)
+    const isInView = useInView(paragraph)
     const [propsNav, setPropsNav] = useState<scrollSections>()
     const [styleAbout, setStyleAbout] = useState(
         {
             opacity: 0
         }
     )
+
     const fullScreen: CSSProperties = {
         width: '100%',
         height: '100%',
@@ -86,8 +89,7 @@ function App() {
 
     function scroll()
     {
-        const paragraph = document.querySelector<HTMLParagraphElement>('.about-info')
-        if(paragraph!.offsetTop + paragraph!.offsetHeight - window.innerHeight > window.pageYOffset) return
+        if(isInView) return
         setStyleTech({
             opacity: 1,
             display: 'block'
@@ -167,7 +169,7 @@ function App() {
                     <h1>About me</h1>
                     <p className="about-info">My journey with programing started 2018 in middle school, while my IT lesson. In this time, I got to know HTML and CSS, which make huge satisfaction to learn it. I am self-taught developer, who really enjoy programing with wide stack of technology and dont afraid of new challenges</p>
                     <h2>Technology which I am using</h2>
-                    <div className="tech-stack" style={styleTech}>
+                    <div className="tech-stack" style={styleTech} ref={paragraph}>
                         <div className="tech-container">
                             <label htmlFor="html-progress">
                                 <h3>HTML</h3>
@@ -215,7 +217,7 @@ function App() {
                     </div>
                 </section>
                 <section id="projects" ref={projects}>
-
+                    <Projects />
                 </section>
             </main>
         </>

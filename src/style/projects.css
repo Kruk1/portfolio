@@ -1,0 +1,382 @@
+#projects
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 77px;
+}
+
+#projects h1 
+{
+    margin-top: 20px;
+    font-size: 60px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    border-bottom: 3px solid #404040;
+    padding: 5px 10px 9px 10px;
+}
+
+.projects-container
+{
+    margin-top: 15px;
+    overflow: hidden;
+    width: 1177.45px;
+}
+
+.projects-container-drag
+{
+    display: flex;
+    cursor: grab;
+}
+
+.projects-container-drag:active
+{
+    cursor: grabbing;
+}
+
+.project
+{
+    opacity: 0;
+    width: 1163.45px;
+    height: 600px;
+    border: 2px solid #404040;
+    margin: 5px;
+    border-radius: 15px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.project-bg
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+    height: 600px;
+    opacity: 0.5;
+    z-index: -10;
+}
+
+.project-info
+{
+    width: 100%;
+    height: 600px;
+    background-color: #11111191;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 1 0 100%;
+}
+
+.project-info h2
+{
+    font-weight: 400;
+    font-size: 80px;
+    border-bottom: 3px solid #404040;
+    padding: 0 10px;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
+}
+
+.project-info p 
+{
+    margin-top: 20px;
+    line-height: 37px;
+    font-size: 30px;
+    max-width: 800px;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
+} 
+
+.project-buttons
+{
+    display: flex;
+    margin: 15px 0 0 0;
+}
+
+.project-buttons a 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 56px;
+    border: 1px solid #404040;
+    border-radius: 50%;
+    transition: .2s;
+    background-color: #282828;
+    margin: 0 5px;
+}
+
+.project-buttons a .icon-github-circled, .project-buttons a .icon-globe
+{
+    font-size: 40px;
+}
+
+.project-buttons a:hover
+{
+    background-color: #404040;
+    transform: scale(1.2);
+}
+
+.slider
+{
+    display: flex;
+    align-items: center;
+}
+
+.slide-btn
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #323232;
+    width: 30px;
+    height: 60px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .2s;
+}
+
+.slide-btn:hover
+{
+    background-color: #404040;
+}
+
+.slide-btn .icon-left-open-big::before, .slide-btn .icon-right-open-big::before
+{
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.slider-btns
+{
+    display: flex;
+    margin-top: 5px;
+}
+
+.slider-btn
+{
+    border: 0;
+    width: 40px;
+    height: 10px;
+    background-color: #404040;
+    margin: 0 3px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.slider-active
+{
+    background-color: #00afaf;
+}
+
+@media screen and (max-width: 1285px) {
+    .project-bg
+    {
+        height: 500px;
+    }
+
+    .project
+    {
+        width: 969.547px;
+        height: 500px;
+    }
+
+    .project-info
+    {
+        height: 500px;
+    }
+
+    .projects-container
+    {
+        width: 983.547px;
+    }
+}
+
+@media screen and (max-width: 1070px) {
+    .project-bg
+    {
+        height: 400px;
+    }
+
+    .project
+    {
+        width: 775.641px;
+        height: 400px;
+    }
+
+    .project-info
+    {
+        height: 400px;
+    }
+
+    .projects-container
+    {
+        width: 789.641px;
+    }
+
+    .project-info p
+    {
+        max-width: 600px;
+        font-size: 25px;
+        line-height: 29px;
+    }
+
+    .project-info h2
+    {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .projects-container
+    {
+        width: 595.719px;
+    }
+
+    .project-bg
+    {
+        height: 300px;
+    }
+
+    .project-info
+    {
+        height: 300px;
+    }
+
+    .project
+    {
+        width: 581.719px;
+        height: 300px;
+    }
+
+    .project-info p
+    {
+        max-width: 400px;
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .project-info h2
+    {
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 690px){
+    .projects-container
+    {
+        width: 401.812px;
+    }
+
+    .project-bg
+    {
+        height: 200px;
+    }
+
+    .project-info
+    {
+        height: 200px;
+    }
+
+    .project
+    {
+        width: 387.812px;
+        height: 200px;
+    }
+
+    .project-info p
+    {
+        font-size: 15px;
+        line-height: 18px;
+        margin-top: 10px;
+    }
+
+    .project-info h2
+    {
+        font-size: 30px;
+    }
+
+    .project-buttons a
+    {
+        line-height: 42px;
+    }
+
+    .project-buttons a .icon-github-circled, .project-buttons a .icon-globe {
+        font-size: 30px;
+    }
+
+    .slide-btn
+    {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 420px){
+    .project-bg
+    {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 175px;
+    }
+
+    .project-info
+    {
+        height: 175px;
+    }
+
+    .project
+    {
+        width: 300.547px;
+        height: 175px;
+        overflow: hidden;
+    }
+
+    .projects-container
+    {
+        width: 314.547px;
+    }
+
+    .project-info p
+    {
+        max-width: 250px;
+        font-size: 13px;
+        line-height: 15px;
+        margin-top: 5px;
+    }
+
+    .project-info h2
+    {
+        font-size: 28px;
+    }
+
+    .project-buttons a
+    {
+        line-height: 35px;
+    }
+
+    .project-buttons a .icon-github-circled, .project-buttons a .icon-globe {
+        font-size: 25px;
+    }
+
+    .project-buttons
+    {
+        margin-top: 5px;
+    }
+}

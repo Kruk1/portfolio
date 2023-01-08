@@ -15,8 +15,8 @@ function Nav(props: any) {
 
     function scroll()
     {
-        if(window.innerHeight >= 650) return
-        if(props.scrollSections.projects.offsetTop - 100 >= window.pageYOffset)
+        if(window.innerWidth <= 650) return
+        if(props.scrollSections.projects.offsetTop - 100 > window.pageYOffset)
             setIndexNavItem(0)
         else if(props.scrollSections.projects.offsetTop - 100 <= window.pageYOffset)
             setIndexNavItem(100)
