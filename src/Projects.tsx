@@ -25,7 +25,6 @@ function Projects() {
                 x: lastTranslate - (lastTranslate - slideWitdh * (Math.ceil(lastTranslate / slideWitdh) - 1))
             })
         }
-        console.log(lastTranslate - (lastTranslate - slideWitdh * (Math.ceil(lastTranslate / slideWitdh) - 1)))
         setLastTranslate(lastTranslate - (lastTranslate - slideWitdh * (Math.ceil(lastTranslate / slideWitdh) - 1)))
         setTimeout(setActiveBtn, 350)
     }

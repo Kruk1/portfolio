@@ -6,11 +6,13 @@ import './style/cleanStyle.css'
 import Typing from './typing/typing'
 import { useInView } from 'framer-motion'
 import Projects from './Projects'
+import Contact from './Contact'
 
 type scrollSections =
 {
     intro: HTMLDivElement | null;
     projects: HTMLDivElement | null;
+    contact: HTMLDivElement | null;
 }
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
     const exe = useRef<HTMLDivElement>(null)
     const intro = useRef<HTMLDivElement>(null)
     const projects = useRef<HTMLDivElement>(null)
+    const contact = useRef<HTMLDivElement>(null)
     const paragraph = useRef<HTMLDivElement>(null)
     const isInView = useInView(paragraph)
     const [propsNav, setPropsNav] = useState<scrollSections>()
@@ -26,7 +29,6 @@ function App() {
             opacity: 0
         }
     )
-
     const fullScreen: CSSProperties = {
         width: '100%',
         height: '100%',
@@ -121,7 +123,7 @@ function App() {
             }
         }
         typeIntro()
-        setPropsNav({intro: intro.current, projects: projects.current})
+        setPropsNav({intro: intro.current, projects: projects.current, contact: contact.current})
     }, [])
 
     return (
@@ -218,6 +220,9 @@ function App() {
                 </section>
                 <section id="projects" ref={projects}>
                     <Projects />
+                </section>
+                <section id="contact" ref={contact}>
+                    <Contact />
                 </section>
             </main>
         </>

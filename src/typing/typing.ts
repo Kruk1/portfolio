@@ -8,7 +8,8 @@ export default class Typing
 {
     element: string;
     options: options;
-    elementBefore?: HTMLElement
+    elementBefore?: HTMLElement;
+    interval: any;
 
     constructor(element: string, options: options, elementBefore?: HTMLElement)
     {
@@ -24,7 +25,7 @@ export default class Typing
             if(!document.querySelector(this.element)) return reject('Element missing!')
             let i = 0
             const text = document.createTextNode('')
-            const interval = setInterval(() => 
+            this.interval = setInterval(() => 
             {
                 let element = document.querySelector(this.element)
                 if(i <= typingText.length - 1 && element !== null)
@@ -38,7 +39,7 @@ export default class Typing
                 }
                 else if(i > typingText.length - 1 || element === null)
                 {
-                    clearInterval(interval)
+                    clearInterval(this.interval)
                     resolve('Success')
                 }
                 else
@@ -47,5 +48,10 @@ export default class Typing
                 }
             }, this.options.duration)
         })
+    }
+
+    stopTyping()
+    {
+        clearInterval(this.interval)
     }
 }

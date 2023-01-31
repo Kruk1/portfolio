@@ -18,8 +18,10 @@ function Nav(props: any) {
         if(window.innerWidth <= 650) return
         if(props.scrollSections.projects.offsetTop - 100 > window.pageYOffset)
             setIndexNavItem(0)
-        else if(props.scrollSections.projects.offsetTop - 100 <= window.pageYOffset)
+        else if(props.scrollSections.projects.offsetTop - 100 <= window.pageYOffset && props.scrollSections.contact.offsetTop - 100 > window.pageYOffset)
             setIndexNavItem(100)
+        else if(props.scrollSections.contact.offsetTop - 100 <= window.pageYOffset)
+            setIndexNavItem(200)
         else
         {
             let never: never
@@ -59,14 +61,6 @@ function Nav(props: any) {
             setIsNavOpen(true)
     }, [])
 
-    function animateNav(event: React.MouseEvent)
-    {
-        if(window.innerHeight <= 650) return
-        const boolArr = Array.from(list.current!.children).map((item: any) => item.firstChild?.firstChild === event.currentTarget.firstChild?.firstChild)
-        const indexItem = boolArr.indexOf(true)
-        setIndexNavItem(100 * indexItem)
-    }
-
     return (
         <header className='nav'>
             <nav className='nav-controllers'>
@@ -76,10 +70,10 @@ function Nav(props: any) {
                     {isNavOpen ? 
                     <>
                         <ul ref={list} onAnimationEnd={overflow}>
-                            <li onClick={animateNav}><a href="#introduce">About</a></li>
-                            <li onClick={animateNav}><a href="#projects">Projects</a> </li>
-                            <li onClick={animateNav}><a href="#">Contact</a></li>
-                            <li onClick={animateNav}><a href="#">Resume</a></li>
+                            <li><a href="#introduce">About</a></li>
+                            <li><a href="#projects">Projects</a> </li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#">Resume</a></li>
                         </ul>
                         <div className="active" ref={activeItem} style={{transform: `translateX(${indexNavItem}%) scale(${scale})`}}></div>
                     </>
