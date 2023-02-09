@@ -22,7 +22,7 @@
     display: flex;
     justify-content: center;
     width: calc(100% - 10px);
-    margin: 20px 20px 10px 20px;
+    margin: 20px 20px 0 20px;
 }
 
 .social-media
@@ -50,7 +50,7 @@
     border-right: 1px solid #323232;
 }
 
-.social-media p 
+.social-media p, .open-form p
 {
     font-size: 45px;
     font-weight: 400;
@@ -61,7 +61,7 @@
     transform: translateY(40px);
 }
 
-.social-media:hover p 
+.social-media:hover p, .open-form:hover p
 {
     visibility: visible;
     opacity: 1;
@@ -141,11 +141,55 @@
     background-color: #C13584;
 }
 
+.email-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 10px);
+    margin: 0 10px;
+}
+
+.email-form
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(80% + 4px);
+    min-height: 630px;
+    border-left: 1px solid #323232;
+    border-right: 1px solid #323232;
+    border-bottom: 1px solid #323232;
+}
+
+.open-form
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 630px;
+    cursor: pointer;
+}
+
+.open-form:hover
+{
+    background-color: #434343;
+}
+
+.email-form .icon-mail
+{
+    font-size: 150px;
+}
+
 form
 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 20px 20px;
+    opacity: 0;
 }
 
 form i 
@@ -231,4 +275,228 @@ form button:hover
 {
     background-color: #434343;
     border: 2px solid #00afaf;
+}
+
+@media screen and (max-width: 1270px)
+{
+    .email-input
+    {
+        width: 350px;
+    }
+
+    #title, #content
+    {
+        width: 735px;
+    }
+
+    .social-media
+    {
+        height: 400px;
+    }
+
+    .social-media, .email-form .icon-mail
+    {
+        font-size: 120px;
+    }
+
+    form h2 
+    {
+        font-size: 35px;
+    }
+
+    .social-media p, .open-form p 
+    {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 1015px)
+{
+    .email-input
+    {
+        width: 280px;
+    }
+
+    #title, #content
+    {
+        width: 595px;
+    }
+
+    .social-media, .email-form .icon-mail
+    {
+        font-size: 100px;
+    }
+
+    .social-media p, .open-form p 
+    {
+        font-size: 35px;
+    }
+
+    form h2 
+    {
+        font-size: 30px;
+    }
+
+    .email-form
+    {
+       min-height: 565px;
+    }
+    
+    .social-media
+    {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 845px)
+{
+    .email-input
+    {
+        width: 220px;
+    }
+
+    #title, #content
+    {
+        width: 475px;
+    }
+
+    #content
+    {
+        height: 150px;
+    }
+
+    .social-media, .email-form .icon-mail
+    {
+        font-size: 80px;
+    }
+
+    .social-media p, .open-form p 
+    {
+        font-size: 30px;
+    }
+
+    form h2 
+    {
+        font-size: 25px;
+    }
+
+    .email-form
+    {
+       min-height: 470px;
+    }
+}
+
+@media screen and (max-width: 690px)
+{
+    .social-media-container
+    {
+        flex-wrap: wrap;
+    }
+
+    .social-media
+    {
+        width: 40%;
+        border: 0.5px solid #323232;
+        border-collapse: collapse;
+    }
+
+    .email-form
+    {
+        width: calc(80% + 1px) ;
+    }
+
+    .social-media, .email-form .icon-mail
+    {
+        font-size: 110px;
+    }
+
+    .social-media p, .open-form p 
+    {
+        font-size: 35px;
+    }
+
+    form h2 
+    {
+        font-size: 25px;
+    }
+
+    .email-input
+    {
+        width: 335px;
+        margin: 5px;
+        text-align: center;
+    }
+
+    #title
+    {
+        text-align: center;
+    }
+
+    #title, #content
+    {
+        width: 335px;
+    }
+
+    .email-container-inputs
+    {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .email-input
+    {
+        width: 250px;
+    }
+
+    #title, #content
+    {
+        width: 250px;
+    }
+
+    form h2 
+    {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    #contact h1 
+    {
+        font-size: 55px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .email-input
+    {
+        width: 175px;
+    }
+
+    #title, #content
+    {
+        width: 175px;
+    }
+    
+    .social-media, .email-form .icon-mail
+    {
+        font-size: 90px;
+    }
+
+    .social-media p, .open-form p 
+    {
+        font-size: 25px;
+    }
+
+    .social-media
+    {
+        height: 250px;
+    }
+
+    form
+    {
+        margin: 10px;
+    }
 }
