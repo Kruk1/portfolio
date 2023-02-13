@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "start": "vite"
+    "start": ""
   },
   "dependencies": {
     "framer-motion": "^7.6.15",
