@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import axios from 'axios'
 import './style/contact.css'
+import Loading from './Loading'
 
 function Contact(){
     const [contactForm, setContactForm] = useState(
@@ -13,6 +14,7 @@ function Contact(){
         }
     )
     const [isEmailFormOpen, setIsEmailFormOpen] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     const [response, setResponse] = useState(
         {
             message: '',
@@ -21,6 +23,8 @@ function Contact(){
             }
         }
     )
+
+    console.log(contactForm)
 
     function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)
     {
@@ -44,6 +48,7 @@ function Contact(){
         try
         {
             event.preventDefault()
+            setIsLoading(true)
             const data = await axios.post(import.meta.env.VITE_MAIL_URL as string, {
                 name: contactForm.name,
                 email: contactForm.email,
@@ -58,6 +63,13 @@ function Contact(){
                     }
                 }
             )
+            setContactForm({
+                name: '',
+                email: '',
+                title: '',
+                content: ''
+            })
+            setIsLoading(false)
         }
         catch(e: any)
         {
@@ -69,6 +81,7 @@ function Contact(){
                     }
                 }
             )
+            setTimeout(() => setIsLoading(false), 1000)
         }
     }
 
@@ -99,20 +112,21 @@ function Contact(){
             </div>
             <div className="email-container">
                 <div className="email-form">
-                    {isEmailFormOpen ?                
+                    {isEmailFormOpen ?
+                        isLoading ? <Loading/> :             
                         <motion.form animate={{opacity: 1}} onSubmit={handleSubmit}>
                             {response.message ? <p style={response.style}>{response.message}</p> : null}
                             <i className="icon-mail"></i>
                             <h2>Send email (response time 24h)</h2>
                             <div className="email-container-inputs">
                                 <label htmlFor="name" className='hidden'>Name</label>
-                                <input type="text" name="name" className='email-input' placeholder='Name' onChange={handleChange} />
+                                <input type="text" name="name" className='email-input' placeholder='Name' onChange={handleChange} value={contactForm.name} />
                                 <label htmlFor="email" className='hidden'>Email</label>
-                                <input type="email" name="email" className='email-input' placeholder='Email (e.g. example@example.com)' onChange={handleChange} />
+                                <input type="email" name="email" className='email-input' placeholder='Email (e.g. example@example.com)' onChange={handleChange} value={contactForm.email} />
                             </div>
                             <label htmlFor="title" className='hidden'>Title</label>
-                            <input type="text" name="title" id='title' placeholder='Title' onChange={handleChange} />
-                            <textarea name="content" id="content" cols={131} rows={10} placeholder='Write your message here!' onChange={handleChange}></textarea>
+                            <input type="text" name="title" id='title' placeholder='Title' onChange={handleChange} value={contactForm.title} />
+                            <textarea name="content" id="content" cols={131} rows={10} placeholder='Write your message here!' onChange={handleChange} value={contactForm.content}></textarea>
                             <button>Send Email</button>
                         </motion.form> : 
                         <div className='open-form' onClick={openEmailForm}>
