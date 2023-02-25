@@ -1,0 +1,40 @@
+footer
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 120px;
+}
+
+.social-media-footer
+{
+    margin-top: 10px;
+}
+
+.social-media-footer a
+{
+    color: white;
+    font-size: 40px;
+    margin: 0 5px;
+}
+
+.social-media-footer a .icon-whatsapp:hover
+{
+    color: #25d366;
+}
+
+.social-media-footer a .icon-twitter:hover
+{
+    color: #1DA1F2;
+}
+
+.social-media-footer a .icon-instagram:hover
+{
+    color: #C13584;
+}
+
+.social-media-footer a .icon-linkedin:hover
+{
+    color: #0072b1;
+}
