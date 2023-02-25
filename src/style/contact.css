@@ -277,6 +277,12 @@ form button:hover
     border: 2px solid #00afaf;
 }
 
+form p 
+{
+    font-size: 40px;
+    font-weight: 400;
+}
+
 @media screen and (max-width: 1270px)
 {
     .email-input
@@ -498,5 +504,10 @@ form button:hover
     form
     {
         margin: 10px;
+    }
+
+    form p 
+    {
+        font-size: 30px;
     }
 }

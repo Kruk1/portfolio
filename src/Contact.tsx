@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import axios from 'axios'
 import './style/contact.css'
 
 function Contact(){
@@ -12,6 +13,14 @@ function Contact(){
         }
     )
     const [isEmailFormOpen, setIsEmailFormOpen] = useState(false)
+    const [response, setResponse] = useState(
+        {
+            message: '',
+            style: {
+                color: ''
+            }
+        }
+    )
 
     function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)
     {
@@ -28,6 +37,39 @@ function Contact(){
     function openEmailForm()
     {
         setIsEmailFormOpen(true)
+    }
+
+    async function handleSubmit(event: React.FormEvent)
+    {
+        try
+        {
+            event.preventDefault()
+            const data = await axios.post(import.meta.env.VITE_MAIL_URL as string, {
+                name: contactForm.name,
+                email: contactForm.email,
+                title: contactForm.title,
+                text: contactForm.content
+            })
+            setResponse(
+                {
+                    message: data.data,
+                    style: {
+                        color: '#00dd00'
+                    }
+                }
+            )
+        }
+        catch(e: any)
+        {
+            setResponse(
+                {
+                    message: e?.response?.data as string,
+                    style: {
+                        color: 'red'
+                    }
+                }
+            )
+        }
     }
 
     return (
@@ -58,7 +100,8 @@ function Contact(){
             <div className="email-container">
                 <div className="email-form">
                     {isEmailFormOpen ?                
-                        <motion.form animate={{opacity: 1}}>
+                        <motion.form animate={{opacity: 1}} onSubmit={handleSubmit}>
+                            {response.message ? <p style={response.style}>{response.message}</p> : null}
                             <i className="icon-mail"></i>
                             <h2>Send email (response time 24h)</h2>
                             <div className="email-container-inputs">
@@ -77,7 +120,6 @@ function Contact(){
                             <p>E-mail</p>
                         </div>
                     }
-
                 </div>
             </div>
 
