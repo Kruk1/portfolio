@@ -7,6 +7,7 @@ import Typing from './typing/typing'
 import { useInView } from 'framer-motion'
 import Projects from './Projects'
 import Contact from './Contact'
+import Footer from './Footer'
 
 type scrollSections =
 {
@@ -225,6 +226,7 @@ function App() {
                     <Contact />
                 </section>
             </main>
+            <Footer />
         </>)}
 
 export default App

@@ -24,8 +24,6 @@ function Contact(){
         }
     )
 
-    console.log(contactForm)
-
     function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)
     {
         setContactForm((prev) => 
