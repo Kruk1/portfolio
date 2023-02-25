@@ -225,8 +225,7 @@ function App() {
                     <Contact />
                 </section>
             </main>
-        </>
-    )
-}
+        </>)}
 
 export default App
+
